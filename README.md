@@ -13,15 +13,9 @@ From this example, it also introduce the usage of [PayPal Webhook](https://devel
 
 ## Work Flow
 SPB normally involves the frontend and backend in the payment process. In the Restful API, it mainly focus on three parts no matter you decide to implment in the client or server side:
-
-<ol>
-<li>
-[Create Order](https://developer.paypal.com/docs/api/orders/v2/):<br>
+1. Create Order ([API Documentation](https://developer.paypal.com/docs/api/orders/v2/)):<br>
 We need to create the order intention, which can either get the customer payment instantly or after a certain of [time](https://developer.paypal.com/docs/checkout/integration-features/auth-capture/#understand-the-authorization-periods). Besides of the intention, you could also define the payer and purchase information. Make sure that the [country code](https://developer.paypal.com/docs/api/reference/country-codes/) is using our format when you need to define the address.
-<br />
 Here is the example of body structure:
-</li>
-
 ```sh
 {
   "intent": "AUTHORIZE",
@@ -69,15 +63,10 @@ Here is the example of body structure:
   ]
 }
 ```
-
-<li>[Authorize Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize):<br>
-If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.<br />
-</li>
-<li>
-[Capture Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_capture):<br>
+2. Authorize Payment ([API Documentation](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize)):<br>
+If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.
+3. Capture Payment ([API Doucumentation](https://developer.paypal.com/docs/api/orders/v2/#orders_capture)):<br>
 You will need to call this API when you decide to get the payment after the customer finished the purchase process. Please make sure that the payment status is completed under the payment and captures parameters:
-</li>
-
 ```sh
 ...
 
