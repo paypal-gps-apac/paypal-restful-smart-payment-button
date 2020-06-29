@@ -17,7 +17,7 @@ SPB normally involves the frontend and backend in the payment process. In the Re
 We need to create the order intention, which can either get the customer payment instantly or after a certain of [time](https://developer.paypal.com/docs/checkout/integration-features/auth-capture/#understand-the-authorization-periods). Besides of the intention, you could also define the payer and purchase information. Make sure that the [country code](https://developer.paypal.com/docs/api/reference/country-codes/) is using our format when you need to define the address.
 <br>
 Here is the example of body structure:
-```
+```sh
 {
   "intent": "AUTHORIZE",
   "payer": {
@@ -72,7 +72,7 @@ If you chose to get the customer's payment after few days, you will need to call
 <br>
 3. [Capture Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_capture):<br>
 You will need to call this API when you decide to get the payment after the customer finished the purchase process. Please make sure that the payment status is completed under the payment and captures parameters:
-```
+```sh
 ...
 
 "payments": {
