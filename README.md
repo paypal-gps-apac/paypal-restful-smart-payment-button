@@ -91,6 +91,22 @@ You will need to call this API when you decide to get the payment after the cust
 <br>
 
 ## Postman
+The following [document](Postman/Restful.json) demonstrates the work flow of how the payment captured from the API call.
+
+### Installation
+```sh
+> npm install
+```
+
+### Run
+```sh
+> npm start
+```
+ After the project is compiled, please access to [http://localhost:3000/ucc-form](http://localhost:3000) to try the example.
+
+
+### Contribution
+We are welcome anyone to folk this repository and make PR to contribute this example project by creating test cases or code changes :smile:.
 
 
 
