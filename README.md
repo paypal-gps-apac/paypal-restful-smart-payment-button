@@ -16,10 +16,11 @@ SPB normally involves the frontend and backend in the payment process. In the Re
 
 <ol>
 <li>
-1. [Create Order](https://developer.paypal.com/docs/api/orders/v2/):<br>
+[Create Order](https://developer.paypal.com/docs/api/orders/v2/):<br>
 We need to create the order intention, which can either get the customer payment instantly or after a certain of [time](https://developer.paypal.com/docs/checkout/integration-features/auth-capture/#understand-the-authorization-periods). Besides of the intention, you could also define the payer and purchase information. Make sure that the [country code](https://developer.paypal.com/docs/api/reference/country-codes/) is using our format when you need to define the address.
 <br />
 Here is the example of body structure:
+</li>
 ```sh
 {
   "intent": "AUTHORIZE",
@@ -67,9 +68,7 @@ Here is the example of body structure:
   ]
 }
 ```
-</li>
-
-</li>[Authorize Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize):<br>
+<li>[Authorize Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize):<br>
 If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.<br />
 </li>
 <li>
