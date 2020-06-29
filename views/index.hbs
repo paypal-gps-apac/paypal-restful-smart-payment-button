@@ -1,0 +1,177 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="loader-lty" id="loader" >
+	<div class="loader" ></div>
+</div>
+
+<div class="center-wrapper" style="display: none;" id="main-content">
+	<div class="content-lty">
+		<div class="content">
+			<div class="stat-bar" ></div>
+			<nav>
+				<a href="#" class="menu">Menu</a>
+				<h1 class="logo">PayPalMerchant</h1>
+				<div class="icons">
+					<i class="fas fa-search"></i>
+					<i class="fas fa-shopping-bag"></i><span style="margin-left: 0.3rem;"></span>
+				</div>
+			</nav>
+
+            <div id="checkout-lty">
+                <div class="top-bar">
+                    <!-- <i class="fas fa-search"></i> -->
+                    <img class="backbtn" src="images/backbtn.png"  width="10px" height="10px" alt="back">
+                    <span>Continue shopping</span>
+                </div>
+                <div class="bag">
+                    <p class="bag-head"><span style="text-transform: uppercase">Your Bag</span> - 1 item</p>
+                </div>
+                <div class="bag-product">
+                    <div class="image">
+                        <img src="images/image.jpeg" class="product-image">
+                    </div>
+                    <div class="description">
+                        <p class="product-code small muted">Product code: PP022592000</p>
+                        <h1>Ray-Ban Aviator Classic</h1>
+                        <p>Sun Glasses</p>
+                        <p class="description-text">An easy-to-use dive computer with freedive mode and air integration.</p>
+                        <p style="margin-bottom: 0.5rem;">One Size</p>
+                        <h2>$825.00</h2>
+                        <div class="quantity-wrapper">
+                            <div>
+                                <label for="quantity" style="margin-right: 0.5rem;">Quantity:</label>
+                                <select name="quantity" style="margin-bottom: 1rem;">
+                                    <option value disabled>Please select</option>
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <button class="btn-remove">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bag-total">
+                    <div class="subtotal">
+                        <p class="small">Subtotal:</p>
+                        <p class="small">$825.00</p>
+                    </div>
+                    <div class="delivery">
+                        <p class="small">Delivery (Standard - 2 working days):<br>
+                            <span class="change-delivery">Change delivery method</span></p>
+                        <p class="small">Free</p>
+                    </div>
+                    <div class="total">
+                        <h3>Total:</h3>
+                        <h3>$825.00</h3>
+                    </div>
+
+                    <!-- Start of PayPal Smart button  -->
+                    <div id="paypal-button-container"></div>
+                    <script>paypal.Buttons({
+                            onRendered: function() {
+                                document.getElementById("main-content").style.display = "block";
+                                document.getElementById("loader").style.display = "none";
+                            },
+                            enableStandardCardFields: true,
+                            createOrder: function (data, actions) {
+                                return actions.order.create({
+                                    intent: 'CAPTURE',
+                                    payer: {
+                                        name: {
+                                            given_name: "Tse",
+                                            surname: "Sunny"
+                                        },
+                                        address: {
+                                            address_line_1: '123 ABC Street',
+                                            address_line_2: 'Apt 2',
+                                            admin_area_2: 'San Jose',
+                                            admin_area_1: 'CA',
+                                            postal_code: '95131',
+                                            country_code: 'US'
+                                        },
+                                        email_address: "customer@domain.com",
+                                        phone: {
+                                            phone_type: "MOBILE",
+                                            phone_number: {
+                                                national_number: "11231242343"
+                                            }
+                                        }
+                                    },
+                                    purchase_units: [
+                                        {
+                                            amount: {
+                                                value: '15.23',
+                                                currency_code: 'USD'
+                                            },
+                                            shipping: {
+                                                name: {
+                                                    full_name: 'Sunny Tse'
+                                                },
+                                                address: {
+                                                    address_line_1: '2211 N First Street',
+                                                    address_line_2: 'Building 17',
+                                                    admin_area_2: 'San Jose',
+                                                    admin_area_1: 'CA',
+                                                    postal_code: '95131',
+                                                    country_code: 'US'
+                                                }
+                                            },
+                                        }
+                                    ]
+                                });
+                            },
+                            onApprove: function(data, actions) {
+                                return actions.order.capture().then(function(details) {
+                                    return fetch('/transaction-check', {
+                                        method: 'post',
+                                        headers: {
+                                            'content-type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            orderID: data.orderID
+                                        })
+                                    }).then(function (data) {
+                                        return data.json();
+                                    }).then(function (json) {
+                                        if(json.success === true){
+                                            document.getElementById("checkout-lty").style.display = "none";
+                                            document.getElementById("transaction-completed-lty").style.display = "block";
+                                        } else{
+                                            alert('Error occurred.');
+                                        }
+                                    }).catch(function (err) {
+                                        console.warn('Something went wrong.', err);
+                                    });
+                                });
+                            }
+                        }).render("#paypal-button-container")
+                    </script>
+
+                    <!-- End of PayPal Smart Button -->
+
+                </div>
+                <div class="help">
+                    <p>Please try the card 4566199468441587 with 12/25</p>
+                </div>
+            </div>
+
+            <div class="transaction-completed-lty" id="transaction-completed-lty">
+                <div>
+                    <img src="images/tick.png" class="image-center" align="middle">
+                </div>
+                <div class="description img-text">
+                    <p class="product-code small muted">Product code: PP022592000</p>
+                    <h1>Transaction Completed!</h1>
+                </div>
+            </div>
+
+            
+		</div>
+	</div>
+</div>
+<div class="bg"></div>
+
+
+
+</head>
