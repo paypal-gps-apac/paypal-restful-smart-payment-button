@@ -64,7 +64,7 @@ Here is the example of body structure:
 }
 ```
 2. [Authorize Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize):<br>
-If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.
+If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.<br> 
 3. [Capture Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_capture):<br>
 You will need to call this API when you decide to get the payment after the customer finished the purchase process. Please make sure that the payment status is completed under the payment and captures parameters:
 ```sh
