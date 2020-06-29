@@ -7,7 +7,7 @@
 :point_right: [English](README.md)<br>
 :point_right: [简体中文](readme/README-zh_cn.md)
 
-PayPal Smart Payment Button (SPB) 通过简化的解决方案提供无缝的结帐体验。它支持多种购买方式，包括欧洲国家/地区的本地付款。您还可以查看此[文档][document](https://developer.paypal.com/docs/checkout/#try-the-buttons)，并介绍了该按钮的工作原理。
+PayPal Smart Payment Button (SPB) 通过简化的解决方案提供无缝的结帐体验。它支持多种购买方式，包括欧洲国家/地区的本地付款。您还可以查看此[文档](https://developer.paypal.com/docs/checkout/#try-the-buttons)，并介绍了该按钮的工作原理。
 <br><br>
 在此示例中，它还介绍了[PayPal Webhook](https://developer.paypal.com/docs/api-basics/notifications/webhooks/rest/#overview)的用法，提供了一个渠道用來接收付款消息。
 
