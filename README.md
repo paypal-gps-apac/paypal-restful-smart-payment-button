@@ -21,6 +21,7 @@ We need to create the order intention, which can either get the customer payment
 <br />
 Here is the example of body structure:
 </li>
+
 ```sh
 {
   "intent": "AUTHORIZE",
@@ -68,6 +69,7 @@ Here is the example of body structure:
   ]
 }
 ```
+
 <li>[Authorize Payment](https://developer.paypal.com/docs/api/orders/v2/#orders_authorize):<br>
 If you chose to get the customer's payment after few days, you will need to call this API and authorize the payment. So that the issuer bank will hold the amount of money from the customer's credit card until the payment is going to be captured. You need to use the order ID retrieved from the [Order API](https://developer.paypal.com/docs/api/orders/v2/) in order to call this API.<br />
 </li>
