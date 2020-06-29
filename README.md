@@ -1,6 +1,6 @@
 # PayPal Smart Payment Button Solution
 
-[![npm version](https://badge.fury.io/js/avatar-bot-cli.svg)](https://badge.fury.io/js/paypal-acc-vault)
+[![npm version](https://badge.fury.io/js/paypal-restful-smart-payment-button.svg)](https://badge.fury.io/js/paypal-restful-smart-payment-button)
 ![build succeeded](https://img.shields.io/badge/build-succeeded-brightgreen.svg)
 ![Test passing](https://img.shields.io/badge/Tests-passing-brightgreen.svg)
 
@@ -97,7 +97,7 @@ The following [document](Postman/Restful.json) demonstrates the work flow of how
 ```sh
 > npm start
 ```
- After the project is compiled, please access to [http://localhost:3000/ucc-form](http://localhost:3000) to try the example.
+ After the project is compiled, please access to [http://localhost:3000](http://localhost:3000) to try the example.
 
 
 ### Contribution
