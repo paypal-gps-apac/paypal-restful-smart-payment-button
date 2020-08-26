@@ -4,8 +4,8 @@
 ![build succeeded](https://img.shields.io/badge/build-succeeded-brightgreen.svg)
 ![Test passing](https://img.shields.io/badge/Tests-passing-brightgreen.svg)
 
-:point_right: [English](README.md)<br>
-:point_right: [简体中文](readme/README-zh_cn.md)
+:point_right: [English](../README.md)<br>
+:point_right: [简体中文](README-zh_cn.md)
 
 PayPal Smart Payment Button (SPB) 通过简化的解决方案提供无缝的结帐体验。它支持多种购买方式，包括欧洲国家/地区的本地付款。您还可以查看此[文档](https://developer.paypal.com/docs/checkout/#try-the-buttons)，并介绍了该按钮的工作原理。
 <br><br>
